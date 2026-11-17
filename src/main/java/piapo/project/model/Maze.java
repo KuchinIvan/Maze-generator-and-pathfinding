@@ -52,7 +52,7 @@ public class Maze {
 
     public CellType getCellType(int x, int y) {
         if (isInside(x, y)) {
-            return grid[y][x];
+            return grid[x][y];
         }
         return CellType.WALL;
     }
@@ -70,5 +70,17 @@ public class Maze {
     public void addGenerationStep(Position position, CellType cellType) {
         AlgorithmStep step = new AlgorithmStep(position, cellType);
         generationSteps.add(step);
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public List<AlgorithmStep> getGenerationSteps() {
+        return generationSteps;
     }
 }
