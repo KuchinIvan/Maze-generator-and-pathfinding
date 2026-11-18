@@ -23,7 +23,24 @@ public class Maze {
         for (int y = 0; y < height; y++) {
             Arrays.fill(this.grid[y], CellType.WALL);
         }
+    }
 
+    // геттеры
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public CellType[][] getGrid() {
+        return grid;
+    }
+
+    public List<AlgorithmStep> getGenerationSteps() {
+        return generationSteps;
     }
 
     public Position getStart() {
@@ -33,6 +50,23 @@ public class Maze {
     public Position getFinish() {
         return finish;
     }
+
+    public CellType getCellType(int x, int y) {
+        if (isInside(x, y)) {
+            return grid[x][y];
+        }
+        return CellType.WALL;
+    }
+
+    // сеттеры
+
+    public void setCellType(int x, int y, CellType type) {
+        if (isInside(x, y)) {
+            grid[x][y] = type;
+        }
+    }
+
+    // прочие методы
 
     public boolean isInside(int x, int y) {
         if (x >= 0 && y >= 0 && x < this.width && y < this.height) {
@@ -50,37 +84,10 @@ public class Maze {
 //        }
 //    }
 
-    public CellType getCellType(int x, int y) {
-        if (isInside(x, y)) {
-            return grid[x][y];
-        }
-        return CellType.WALL;
-    }
-
-    public void setCellType(int x, int y, CellType type) {
-        if (isInside(x, y)) {
-            grid[x][y] = type;
-        }
-    }
-
-//    public CellType[][] getGrid() {
-//        return grid;
-//    }
 
     public void addGenerationStep(Position position, CellType cellType) {
         AlgorithmStep step = new AlgorithmStep(position, cellType);
         generationSteps.add(step);
     }
 
-    public int getHeight() {
-        return height;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public List<AlgorithmStep> getGenerationSteps() {
-        return generationSteps;
-    }
 }

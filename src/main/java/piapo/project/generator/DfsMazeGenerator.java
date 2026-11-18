@@ -13,13 +13,14 @@ import static piapo.project.model.CellType.*;
 
 public class DfsMazeGenerator implements MazeGenerator {
 
+    private final SecureRandom secureRandom = new SecureRandom();
+
     @Override
     public Maze generateMaze(int width, int height) {
 
         // тут хранятся клетки которые прошел алгоритм и имеют возможных соседей
         Stack <Position> stack = new Stack<>();
 
-        SecureRandom secureRandom = new SecureRandom();
 
         Maze maze = new Maze(width, height);
         Position start = maze.getStart();
