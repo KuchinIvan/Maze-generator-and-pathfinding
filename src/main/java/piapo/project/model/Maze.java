@@ -15,7 +15,7 @@ public class Maze {
     public Maze(int width, int height) {
         this.width = width;
         this.height = height;
-        this.grid = new  CellType[width][height];
+        this.grid = new CellType[height][width];
         this.generationSteps = new ArrayList<>();
         this.start = new Position(0, 0);
         this.finish = new Position(width-1, height-1);
@@ -24,7 +24,6 @@ public class Maze {
             Arrays.fill(this.grid[y], CellType.WALL);
         }
     }
-
     // геттеры
 
     public int getWidth() {
@@ -53,7 +52,7 @@ public class Maze {
 
     public CellType getCellType(int x, int y) {
         if (isInside(x, y)) {
-            return grid[x][y];
+            return grid[y][x];
         }
         return CellType.WALL;
     }
@@ -62,7 +61,7 @@ public class Maze {
 
     public void setCellType(int x, int y, CellType type) {
         if (isInside(x, y)) {
-            grid[x][y] = type;
+            grid[y][x] = type;
         }
     }
 
