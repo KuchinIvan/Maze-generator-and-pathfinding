@@ -21,7 +21,6 @@ public class DfsMazeGenerator implements MazeGenerator {
         // тут хранятся клетки которые прошел алгоритм и имеют возможных соседей
         Stack <Position> stack = new Stack<>();
 
-
         Maze maze = new Maze(width, height);
         Position start = maze.getStart();
         stack.push(start);
