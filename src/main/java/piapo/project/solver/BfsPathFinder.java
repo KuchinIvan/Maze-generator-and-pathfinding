@@ -19,9 +19,11 @@ import java.util.Set;
 public class BfsPathFinder implements PathFinder {
 
     @Override
-    public PathResult findPath(Maze maze, Position start, Position finish) {
+    public PathResult findPath(Maze maze) {
         long startTime = System.nanoTime();
 
+        Position start = maze.getStart();
+        Position finish = maze.getFinish();
         Queue<Position> queue = new ArrayDeque<>();
         Set<Position> visited = new HashSet<>();
         Map<Position, Position> parentMap = new HashMap<>();

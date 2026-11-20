@@ -22,9 +22,11 @@ public class AStarPathFinder implements PathFinder {
     }
 
     @Override
-    public PathResult findPath(Maze maze, Position start, Position finish) {
+    public PathResult findPath(Maze maze) {
         long startTime = System.nanoTime();
 
+        Position start = maze.getStart();
+        Position finish = maze.getFinish();
         PriorityQueue<Node> openSet = new PriorityQueue<>(Comparator.comparingInt(Node::fScore));
         Set<Position> visited = new HashSet<>();
         Map<Position, Position> parentMap = new HashMap<>();
