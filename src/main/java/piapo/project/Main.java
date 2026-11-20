@@ -102,7 +102,7 @@ public class Main {
                     symbol = '*';
                 } else {
                     symbol = switch (cell) {
-                        case WALL -> '█';
+                        case WALL -> 'O';
                         case PASSAGE -> ' ';
                         case VISITED -> '·';
                         case PATH -> '*';

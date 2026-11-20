@@ -61,7 +61,7 @@ public class AStarPathFinder implements PathFinder {
                 int nextY = current.y() + dir[1];
                 Position neighbor = new Position(nextX, nextY);
 
-                if (!isPassable(maze, nextX, nextY) || visited.contains(neighbor)) {
+                if (!maze.isPassable(nextX, nextY) || visited.contains(neighbor)) {
                     continue;
                 }
 
@@ -104,9 +104,5 @@ public class AStarPathFinder implements PathFinder {
 
         Collections.reverse(path);
         return path;
-    }
-
-    private boolean isPassable(Maze maze, int x, int y) {
-        return maze.isInside(x, y) && maze.getCellType(x, y) != CellType.WALL;
     }
 }

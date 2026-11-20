@@ -76,14 +76,9 @@ public class Maze {
         }
     }
 
-//    public boolean isInside(Position p) {
-//        if (p.x() >= 0 && p.x() < this.width && p.y() >= 0 && p.y() < this.height) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-
+    public boolean isPassable(int x, int y) {
+        return isInside(x, y) && getCellType(x, y) != CellType.WALL;
+    }
 
     public void addGenerationStep(Position position, CellType cellType) {
         AlgorithmStep step = new AlgorithmStep(position, cellType);
