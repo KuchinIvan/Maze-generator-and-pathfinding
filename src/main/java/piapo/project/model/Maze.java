@@ -25,7 +25,6 @@ public class Maze {
             Arrays.fill(this.grid[y], CellType.WALL);
         }
     }
-
     // геттеры
 
     public int getWidth() {
